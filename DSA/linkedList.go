@@ -7,3 +7,8 @@ import (
 func PrintTest() {
 	fmt.Println("DSA package")
 }
+
+type Node struct {
+	data int
+	next *Node
+}

@@ -12,3 +12,7 @@ func NewUser(firstname, lastname string) func() User {
 		return user
 	}
 }
+
+func DeleteUser(id string) func() bool {
+	return func() bool { return false }
+}

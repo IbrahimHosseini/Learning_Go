@@ -55,4 +55,18 @@ func callClosure() {
 	fmt.Println("New Deposit:", deposit(-50.0))
 
 	fmt.Println("=============================================")
+
+	// `service := closures.NewBanckService()` is creating a new bank service instance using a closure
+	// function `NewBanckService` from the `closures` package. This closure function likely initializes
+	// and returns a service object that provides banking functionalities such as transferring funds
+	// between accounts. The `service` variable is then used to call the `Transfer` method on the bank
+	// service instance to transfer funds between two accounts.
+	service := closures.NewBanckService()
+
+	// The line `fmt.Println(service.Transfer(1000.0, 400.0))` is calling the `Transfer` method on the
+	// bank service instance `service` created using a closure in the `closures` package. This method is
+	// likely designed to transfer funds between two accounts.
+	fmt.Println("Balance:", service.Transfer(1000.0, 400.0))
+
+	fmt.Println("=============================================")
 }

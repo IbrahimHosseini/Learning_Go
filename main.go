@@ -36,4 +36,23 @@ func callClosure() {
 	// user was deleted or not.
 	isDeleted := closures.DeleteUser("2213")
 	fmt.Println(isDeleted())
+
+	fmt.Println("=============================================")
+
+	// The line `deposit := closures.NewAccount(1000.0)` is creating a new account with an initial balance
+	// of 1000.0 using a closure. The `NewAccount` function in the `closures` package is likely a closure
+	// that takes the initial balance as a parameter and returns a function that can be called to deposit
+	// or withdraw funds from the account.
+	deposit := closures.NewAccount(1000.0)
+
+	// `fmt.Println(deposit(100.0))` is calling the `deposit` function that was created using a closure in
+	// the `closures` package. This closure function is likely designed to handle depositing or
+	// withdrawing funds from an account.
+	fmt.Println("Deposit:", deposit(100.0))
+
+	// The line `fmt.Println(deposit(-50.0))` is calling the `deposit` function that was created using a
+	// closure in the `closures` package with a parameter of -50.0.
+	fmt.Println("New Deposit:", deposit(-50.0))
+
+	fmt.Println("=============================================")
 }

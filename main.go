@@ -4,17 +4,31 @@ import (
 	"fmt"
 	"myproject/DSA"
 	"myproject/closures"
+	"myproject/methods"
 )
 
 func main() {
 
 	callClosure()
 
+	seprator()
+
+	callMethods()
+
+	seprator()
+
 	callLinkedList()
+
+	seprator()
+
 }
 
 func callLinkedList() {
 	DSA.PrintTest()
+}
+
+func seprator() {
+	fmt.Println("=============================================")
 }
 
 // The function `callClosure` creates a new user with the name "Ibrahim Hossinie" using a closure and
@@ -37,7 +51,7 @@ func callClosure() {
 	isDeleted := closures.DeleteUser("2213")
 	fmt.Println(isDeleted())
 
-	fmt.Println("=============================================")
+	seprator()
 
 	// The line `deposit := closures.NewAccount(1000.0)` is creating a new account with an initial balance
 	// of 1000.0 using a closure. The `NewAccount` function in the `closures` package is likely a closure
@@ -54,7 +68,7 @@ func callClosure() {
 	// closure in the `closures` package with a parameter of -50.0.
 	fmt.Println("New Deposit:", deposit(-50.0))
 
-	fmt.Println("=============================================")
+	seprator()
 
 	// `service := closures.NewBanckService()` is creating a new bank service instance using a closure
 	// function `NewBanckService` from the `closures` package. This closure function likely initializes
@@ -68,5 +82,43 @@ func callClosure() {
 	// likely designed to transfer funds between two accounts.
 	fmt.Println("Balance:", service.Transfer(1000.0, 400.0))
 
-	fmt.Println("=============================================")
+}
+
+func callMethods() {
+
+	// The line `user := methods.User{Name: "Ibrahim"}` is creating a new instance of the `User` struct
+	// defined in the `methods` package and initializing the `Name` field of that struct with the value
+	// "Ibrahim". This line of code is essentially creating a new user object with the name "Ibrahim"
+	// using the `User` struct constructor.
+	user := methods.User{Name: "Ibrahim"}
+
+	// `fmt.Println(user.Greet())` is calling the `Greet` method on the `user` object created from the
+	// `User` struct in the `methods` package and then printing the result of that method call using
+	// `fmt.Println()`.
+	fmt.Println(user.Greet())
+
+	// The `user.Uppername()` method is likely a method defined on the `User` struct in the `methods`
+	// package. This method is expected to convert the name of the user to uppercase or perform some
+	// operation that modifies the name in some way. By calling `user.Uppername()`, the method is invoked
+	// on the `user` object, potentially changing the name stored in the `Name` field of the `User` struct
+	// to uppercase or applying any other transformation specified within the method implementation.
+	user.Uppername()
+
+	fmt.Println(user.Name)
+
+	// `userPointer := &user` is creating a new variable `userPointer` that stores a memory address
+	// pointing to the `user` object. This operation is known as taking the address of the `user` object
+	// using the `&` operator in Go. By creating a pointer to the `user` object, any modifications made to
+	// the object through the `userPointer` variable will directly affect the original `user` object. This
+	// allows for indirect manipulation of the `user` object's fields and methods through the pointer
+	// variable.
+	userPointer := &user
+
+	// The line `userPointer.SetName("Nima")` is invoking the `SetName` method on the object that
+	// `userPointer` is pointing to. In this case, `userPointer` is a pointer to a `User` object, and the
+	// `SetName` method is likely a method defined on the `User` struct in the `methods` package.
+	userPointer.SetName("Nima")
+
+	fmt.Println(userPointer.Name)
+
 }

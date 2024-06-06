@@ -2,33 +2,56 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"myproject/DSA"
 	"myproject/closures"
+	"myproject/errorhandling"
 	"myproject/methods"
 )
 
 func main() {
 
+	seprator("Clouser")
+
 	callClosure()
 
-	seprator()
+	seprator("Methods")
 
 	callMethods()
 
-	seprator()
+	seprator("LinkedList")
 
 	callLinkedList()
 
-	seprator()
+	seprator("Error handling")
+
+	callDivision()
+
+}
+
+func seprator(name string) {
+	fmt.Printf("======================[ %s ]======================\n", name)
+}
+
+func callDivision() {
+	result, err := errorhandling.Divide(10, 5)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("Result: %f \n", result)
+
+	_, err2 := errorhandling.Divide(3, 0)
+
+	if err2 != nil {
+		log.Printf("❌ %s\n", err2)
+	}
 
 }
 
 func callLinkedList() {
 	DSA.PrintTest()
-}
-
-func seprator() {
-	fmt.Println("=============================================")
 }
 
 // The function `callClosure` creates a new user with the name "Ibrahim Hossinie" using a closure and
@@ -51,8 +74,6 @@ func callClosure() {
 	isDeleted := closures.DeleteUser("2213")
 	fmt.Println(isDeleted())
 
-	seprator()
-
 	// The line `deposit := closures.NewAccount(1000.0)` is creating a new account with an initial balance
 	// of 1000.0 using a closure. The `NewAccount` function in the `closures` package is likely a closure
 	// that takes the initial balance as a parameter and returns a function that can be called to deposit
@@ -67,8 +88,6 @@ func callClosure() {
 	// The line `fmt.Println(deposit(-50.0))` is calling the `deposit` function that was created using a
 	// closure in the `closures` package with a parameter of -50.0.
 	fmt.Println("New Deposit:", deposit(-50.0))
-
-	seprator()
 
 	// `service := closures.NewBanckService()` is creating a new bank service instance using a closure
 	// function `NewBanckService` from the `closures` package. This closure function likely initializes

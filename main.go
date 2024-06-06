@@ -29,10 +29,13 @@ func main() {
 
 }
 
+// The function seprator takes a string input and does not return any value.
 func seprator(name string) {
 	fmt.Printf("======================[ %s ]======================\n", name)
 }
 
+// The function `callDivision` calls the `Divide` function from the `errorhandling` package to perform
+// division operations and handles any errors that may occur.
 func callDivision() {
 	result, err := errorhandling.Divide(10, 5)
 
